@@ -106,9 +106,3 @@ To stress-test the model against the Barracuda 2025 variants, add:
   and re-extract with `pdf2image` + `pyzbar`.
 
 Re-run `07_evaluate.py` on each adversarial test set to report degradation.
-
-## Citation reminder
-
-You mentioned "Trap4Phish 2025" in the project brief — I could not independently
-verify that dataset exists at the Canadian Institute for Cybersecurity. Please
-double-check the source name before citing it in the paper.
