@@ -1,0 +1,24 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+data/QR_All_Malicious/
+data/QR_All_benign/
+data/adversarial/
+models/*.keras
+models/*.tflite
+models/*.joblib
+physical_test/
+_zip_work/
+New folder/
+paper.docx
+*.zip
+overleaf_submission/
+logs_arch_ablation.txt
+results/
+data/*.csv
+data/*.parquet
+.DS_Store
+Thumbs.db

@@ -1,0 +1,41 @@
+# ---- QR Quishing Detection Configuration ----
+# Edit values here; every script reads from this file.
+
+paths:
+  raw_dir: "../../"                    # Where the original zips live (../../ == "QR paper/")
+  benign_zip: "QR_All_benign.zip"
+  malicious_zip: "QR_All_Malicious.zip"
+  data_dir: "data"                     # Extracted images + CSVs land here
+  models_dir: "models"
+  results_dir: "results"
+  figures_dir: "figures"
+
+dataset:
+  # Set to null to use ALL samples. Use a number for a fast pilot run.
+  # Recommended: start with 50000 to verify the pipeline, then null for paper-grade.
+  sample_per_class: null
+  test_size: 0.20
+  val_size: 0.10
+  random_state: 42
+
+image:
+  size: 64          # CNN input WxH (resized from native QR)
+  channels: 1       # grayscale (QRs are binary)
+
+cnn:
+  batch_size: 256
+  epochs: 8
+  learning_rate: 0.001
+  early_stop_patience: 3
+
+xgb:
+  n_estimators: 600
+  max_depth: 8
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.9
+  n_jobs: -1
+
+hybrid:
+  # Meta-learner on top of [cnn_prob, xgb_prob]
+  meta: "logistic"   # "logistic" | "xgb_small"
